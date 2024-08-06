@@ -32,10 +32,10 @@ export class ReservationFormComponent implements OnInit {
   onSubmit() {
     if(this.reservationForm.valid){
       let reservation: Reservation = this.reservationForm.value;
+      console.log(reservation)
       this.reservationService.addReservation(reservation)
       }
     }
   }
-}
 
 
