@@ -4,10 +4,12 @@ import { HomeModule } from './home/home.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReservationFormComponent } from './reservation-form/reservation-form.component';
+import { ReservationListComponent } from './reservation-list/reservation-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
