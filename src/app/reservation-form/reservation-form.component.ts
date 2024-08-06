@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ReservationService} from '../reservation/reservation.service';
+import { Reservation } from '../models/reservation';
 
 @Component({
   selector: 'app-reservation-form',
@@ -12,7 +14,10 @@ export class ReservationFormComponent implements OnInit {
 
   //dependecy injection of angular:
   constructor(
-    private formBuilder: FormBuilder){}
+    private formBuilder: FormBuilder,
+    private reservationService: ReservationService
+
+  ){}
 
   ngOnInit(): void {
     this.reservationForm = this.formBuilder.group({
@@ -22,17 +27,14 @@ export class ReservationFormComponent implements OnInit {
       guestEmail: ['', [Validators.required, Validators.email]],
       roomNumber: ['', Validators.required]
     })
-
-
   }
 
   onSubmit(){
     if(this.reservationForm.valid){
-      console.log("Valid");
-    } else {
-      console.log("Failed");
-    }
+      let reservation: Reservation = this.reservationForm.value;
+      this.reservationService.addReservation(reservation);
   }
+}
 
 
 
