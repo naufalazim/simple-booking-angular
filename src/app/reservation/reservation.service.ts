@@ -13,7 +13,7 @@ export class ReservationService {
     this.reservations = savedReservations? JSON.parse(savedReservations) : [];
   }
 
-  // CRUD
+  // CRUD Operations
 
   getReservations(): Reservation[] {
     return this.reservations;
